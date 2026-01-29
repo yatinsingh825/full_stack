@@ -1,16 +1,117 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Aim
+To implement navigation links in a Single Page Application (SPA) using the **React Router `Link` component**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Description
+This project demonstrates basic navigation between pages in a React application using **React Router DOM**. It includes two pages:
 
-## React Compiler
+- Home Page
+- About Page
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Navigation is handled without page reloads, providing smooth SPA routing behavior. The active navigation link is highlighted based on the current route.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+- SPA navigation using React Router
+- `Link` component for navigation
+- Active link highlighting
+- Separate page components
+- Clean layout with navigation bar
+
+---
+
+## Technologies Used
+- React
+- React Router DOM
+- Vite (development server)
+- CSS for styling
+
+---
+
+## Project Structure
+```
+
+src/
+│
+├── Pages/
+│   ├── Home.jsx
+│   └── About.jsx
+│
+├── App.jsx
+├── main.jsx
+├── App.css
+└── index.css
+
+````
+
+---
+
+## Routing Overview
+| Route | Component | Description |
+|-------|-----------|-------------|
+| `/` | Home | Displays Home page |
+| `/about` | About | Displays About page |
+
+---
+
+## Main Routing Logic
+Navigation is handled using:
+
+```jsx
+<Link to="/">Home</Link>
+<Link to="/about">About</Link>
+````
+
+Routes are defined using:
+
+```jsx
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+</Routes>
+```
+
+---
+
+## Installation & Setup
+
+1. Clone the repository or copy the project.
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+3. Start development server:
+
+   ```bash
+   npm run dev
+   ```
+4. Open in browser:
+
+   ```
+   http://localhost:5173
+   ```
+
+---
+
+## Output Screenshots
+
+### Home Page
+
+![Home Page Screenshot](./ss.png)
+
+### About Page
+
+![About Page Screenshot](./ss2.png)
+
+
+---
+
+## Conclusion
+
+This experiment successfully demonstrates navigation in a React SPA using the React Router `Link` component and route configuration.
+
+---

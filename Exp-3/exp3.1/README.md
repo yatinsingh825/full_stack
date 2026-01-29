@@ -1,16 +1,97 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Aim
+To implement basic client-side routing in a Single Page Application using React Router.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Application Description
+The application implements a sidebar layout with navigation links for:
 
-## React Compiler
+- Dashboard
+- About
+- Contact
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Each link updates the URL and displays the respective page content without reloading the browser.
 
-## Expanding the ESLint configuration
+The default route redirects to the Dashboard page.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Routing Paths
+
+| Route | Description |
+|-------|-------------|
+| `/` | Redirects to Dashboard |
+| `/dashboard` | Displays Dashboard page |
+| `/about` | Displays About page |
+| `/contact` | Displays Contact page |
+
+Example URLs:
+
+```
+
+[http://localhost:5173/dashboard]
+[http://localhost:5173/about]
+[http://localhost:5173/contact]
+
+```
+
+---
+
+## Screenshot
+
+![Application Screenshot](./ss.png)
+
+---
+
+## Project Structure
+
+```
+
+src/
+│
+├── App.jsx        # Main layout and routes
+├── main.jsx       # Entry point with BrowserRouter
+├── App.css        # Layout styling
+├── index.css      # Global styles
+└── assets/
+
+```
+
+---
+
+## How to Run the Project
+
+### Install dependencies
+```
+
+npm install
+
+```
+
+### Start development server
+```
+
+npm run dev
+
+```
+
+### Open browser
+```
+
+[http://localhost:5173]
+
+```
+
+---
+
+## Result
+Basic client-side routing using React Router was successfully implemented, allowing navigation between multiple pages without reloading the application.
+
+---
+
+## Conclusion
+This experiment demonstrates how routing works in a React SPA using React Router, improving user experience by enabling seamless navigation.
+
+---
+
+

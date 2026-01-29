@@ -1,16 +1,153 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Aim
+To create a multi-page Single Page Application (SPA) using client-side routing.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Description
+This project demonstrates a **multi-page SPA built with React** using **React Router** for navigation between pages without reloading the browser.
 
-## React Compiler
+The application contains:
+- A Profile Page
+- A Skill Dashboard Page
+- Navigation via a top navbar
+- A Pie Chart visualization for skills using Recharts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
+- Client-side routing using React Router
+- Profile page with user information
+- Dashboard page with skill visualization
+- Responsive layout
+- Navigation bar for switching pages
+- Pie chart visualization using Recharts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Technologies Used
+- React
+- React Router DOM
+- Recharts
+- CSS
+- Vite
+
+---
+
+## Project Structure
+```
+
+exp3.3/
+│
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   └── pfp.jpg
+│
+├── ss.png
+├── ss2.png
+├── README.md
+├── index.html
+├── package.json
+├── vite.config.js
+└── ...
+
+````
+
+---
+
+## Procedure
+1. Create multiple components.
+2. Map each component to a route.
+3. Test navigation.
+
+---
+
+## Installation & Setup
+
+### Clone repository
+```bash
+git clone <repository-url>
+cd exp3.3
+````
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Install required libraries
+
+```bash
+npm install react-router-dom recharts
+```
+
+### Run development server
+
+```bash
+npm run dev
+```
+
+Open:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Routing Configuration
+
+Routes used:
+
+* `/` → Profile Page
+* `/profile` → Profile Page
+* `/dashboard` → Skill Dashboard
+
+Navigation handled using React Router `Link`.
+
+---
+
+## Screenshots
+
+### Profile Page
+
+![Profile Page](ss.png)
+
+### Dashboard Page
+
+![Dashboard Page](ss2.png)
+
+---
+
+## Skill Dashboard Data
+
+| Skill      | Score |
+| ---------- | ----- |
+| React      | 80    |
+| JavaScript | 75    |
+| Python     | 70    |
+| AI         | 65    |
+
+---
+
+## Future Improvements
+
+* Authentication system
+* Editable profile data
+* Backend integration
+* Dynamic data storage
+* Additional visual analytics
+
+---
+
+
+## Conclusion
+
+This experiment successfully demonstrates routing in React to build a multi-page SPA with smooth navigation and visual data representation.

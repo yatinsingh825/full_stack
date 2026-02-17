@@ -109,7 +109,7 @@ Shows the About after lazy loading completes successfully.
 
 Displays the spinner loader while the Contact component is being loaded lazily.
 
-### ✅ ss6 – Dashboard Page Rendered
+### ✅ ss6 – Contact Page Rendered
 
 ![Contact Page](ss6.png)
 

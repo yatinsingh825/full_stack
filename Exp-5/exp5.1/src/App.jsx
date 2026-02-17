@@ -1,14 +1,21 @@
 import "./App.css";
 import { lazy, Suspense } from "react";
+import Loader from "./Component/Loader";
 
-// ✅ Lazy import
-const Dashboard = lazy(() => import("./Component/Dashboard"));
+// ⏱️ Fake 1 second delay
+const Dashboard = lazy(() =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(import("./Component/Dashboard"));
+    }, 3000); // 1000ms = 1 second
+  })
+);
 
 function App() {
   return (
-    <Suspense fallback={<h2>Loading Dashboard...</h2>}>
+    <Suspense fallback={<Loader />}>
       <Dashboard />
-    </Suspense>
+    </Suspense> 
   );
 }
 

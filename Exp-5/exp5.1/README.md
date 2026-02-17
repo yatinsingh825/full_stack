@@ -7,7 +7,18 @@ This project also demonstrates **lazy loading** using `React.lazy()` and `Suspen
 
 ## 📸 Dashboard Preview
 
+### ⏳ ss2 – Lazy Loading Screen (Spinner Visible)
+
+![Lazy Loading Screenshot](ss1.png)
+
+This screen appears first when the Dashboard component is being loaded lazily.
+A spinner loader is displayed using **React Suspense fallback**.
+
+### 📊 ss – Skill Dashboard UI
+
 ![Skill Dashboard Screenshot](ss.png)
+
+After lazy loading completes, the dashboard renders a pie chart showing different skill levels.
 
 ---
 
@@ -100,6 +111,7 @@ const Dashboard = lazy(() => import("./Component/Dashboard"));
 ```
 
 This improves performance by loading the component only when needed.
+During loading, **ss2.png** shows the spinner, and once finished **ss.png** displays the dashboard.
 
 ---
 
@@ -113,4 +125,3 @@ This project demonstrates:
 * Component-based structure
 
 ---
-

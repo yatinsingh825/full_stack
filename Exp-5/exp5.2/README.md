@@ -77,7 +77,7 @@ src/
 
 ## 🧪 Screenshots
 
-### ⏳ ss1 – Lazy Loading Screen
+### ⏳ ss1 – Lazy Loading Screen of Dashboard
 
 ![Lazy Loading Screen](ss1.png)
 
@@ -90,6 +90,33 @@ Displays the spinner loader while the Dashboard component is being loaded lazily
 Shows the Dashboard after lazy loading completes successfully.
 
 ---
+### ⏳ ss3 – Lazy Loading Screen of about
+
+![Lazy Loading Screen](ss3.png)
+
+Displays the spinner loader while the About component is being loaded lazily.
+
+### ✅ ss4 – About Page Rendered
+
+![About Page](ss4.png)
+
+Shows the About after lazy loading completes successfully.
+
+---
+### ⏳ ss5 – Lazy Loading Screen
+
+![Lazy Loading Screen](ss5.png)
+
+Displays the spinner loader while the Contact component is being loaded lazily.
+
+### ✅ ss6 – Dashboard Page Rendered
+
+![Contact Page](ss6.png)
+
+Shows the Contact after lazy loading completes successfully.
+
+---
+
 
 ## ▶️ How to Run the Project
 

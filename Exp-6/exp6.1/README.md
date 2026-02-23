@@ -1,16 +1,86 @@
-# React + Vite
+# 📝 React Controlled Components – Registration Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates **handling forms using controlled components in React**.
+All form fields are managed using React state (`useState`) and the submitted data is displayed using an alert popup.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Features
 
-## React Compiler
+* Controlled Form Inputs using React State
+* Text Fields (First Name, Last Name)
+* Gender Selection (Radio Buttons)
+* Address Input (Textarea)
+* Date of Birth with **future date restriction**
+* State Selection (Dropdown)
+* Skills Selection (Checkboxes)
+* Submit and Cancel (Reset) Functionality
+* Alert summary of entered details
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React (Vite)
+* JavaScript (ES6+)
+* CSS3
+
+---
+
+## 📷 Screenshots
+
+### ✅ Filled Registration Form
+
+![Filled Form](ss1.png)
+
+### ✅ Alert Showing Submitted Details
+
+![Alert Popup](ss2.png)
+
+---
+
+## ⚙️ Installation & Setup
+
+1. Clone the repository:
+
+```bash
+git clone <your-repo-link>
+```
+
+2. Navigate into the project folder:
+
+```bash
+cd project-folder
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🧠 Learning Outcomes
+
+* Understanding Controlled Components in React
+* Managing multiple inputs with a single state object
+* Handling radio buttons, checkboxes, dropdowns, and date inputs
+* Form submission handling using event handlers
+* Resetting form using state management
+
+---
+
+## 📄 Author
+
+**Yatin Singh**
+
+---
+
+⭐ This project was created as part of a React lab experiment on handling forms using controlled components.

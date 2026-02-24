@@ -1,0 +1,75 @@
+/* Page Background */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 100%;
+}
+
+/* Card Styling */
+.card {
+  width: 420px;
+  border-radius: 14px;
+  border: none;
+  backdrop-filter: blur(10px);
+
+  border-radius: 14px;
+  border: none;
+}
+
+/* Heading */
+h2 {
+  font-weight: 700;
+  color: #243b55;
+}
+
+/* Labels */
+.form-label {
+  color: #243b55;
+  font-size: 15px;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+/* Input Focus Effect */
+.form-control:focus {
+  box-shadow: 0 0 6px rgba(36, 59, 85, 0.4);
+  border-color: #243b55;
+}
+
+/* Error Text */
+.text-danger {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Button */
+.btn-primary {
+  background-color: #243b55;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #141e30;
+}

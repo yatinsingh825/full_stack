@@ -1,41 +1,58 @@
-/* Page Background */
+/* ===== Page Background ===== */
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
   background: linear-gradient(135deg, #141e30, #243b55);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+/* ===== Page Layout ===== */
+.page {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-/* Form Container */
-form {
+/* ===== Heading ===== */
+.title {
+  text-align: center;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+/* ===== Glass Card Container ===== */
+.card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   padding: 35px 40px;
   border-radius: 14px;
-  width: 380px;
+  width: 420px;
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
-  text-align: center;
   color: #fff;
 }
 
-/* Heading */
-h2 {
-  margin-bottom: 25px;
-  font-size: 28px;
-  letter-spacing: 1px;
+/* ===== Form Layout ===== */
+form {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Inputs */
+/* ===== Inputs ===== */
 input[type="text"],
 input[type="date"],
 select,
 textarea {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0 18px 0;
+  padding: 12px;
+  margin-bottom: 18px;
   border-radius: 8px;
   border: 1px solid #aaa;
   background: rgba(255,255,255,0.1);
@@ -47,10 +64,17 @@ textarea {
 
 textarea {
   resize: none;
-  height: 70px;
+  height: 80px;
 }
 
-/* Focus Effect */
+/* ===== Placeholder Fix ===== */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255,255,255,0.65);
+  opacity: 1;
+}
+
+/* ===== Focus Effect ===== */
 input:focus,
 textarea:focus,
 select:focus {
@@ -58,23 +82,48 @@ select:focus {
   box-shadow: 0 0 8px rgba(0,198,255,0.5);
 }
 
-/* Gender & Skills Section */
-label {
-  margin-right: 12px;
-  font-size: 16px;
-  cursor: pointer;
+/* ===== Labels & Text ===== */
+label,
+p {
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 6px;
+  margin: 6px 0 6px;
+  font-size: 15px;
+  letter-spacing: 0.5px;
 }
 
-/* Radio & Checkbox Accent */
+/* ===== Inline Sections (Gender + Skills) ===== */
+.inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* ===== Radio & Checkbox Accent ===== */
 input[type="radio"],
 input[type="checkbox"] {
   accent-color: #00c6ff;
   margin-right: 4px;
 }
 
-/* Submit Button */
+/* ===== Dropdown Fix ===== */
+select option {
+  background: #1f2937;
+  color: #fff;
+}
+
+/* ===== Buttons Container ===== */
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* ===== Buttons ===== */
 button {
-  margin-top: 20px;
   padding: 12px 28px;
   border-radius: 12px;
   border: 2px solid #fff;
@@ -85,14 +134,10 @@ button {
   transition: 0.3s ease;
 }
 
-/* Button Hover Animation */
+/* ===== Button Hover Animation ===== */
 button:hover {
   background: #00c6ff;
   border-color: #00c6ff;
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 6px 18px rgba(0,198,255,0.4);
-}
-select option {
-  background: #1f2937;
-  color: #fff;
 }

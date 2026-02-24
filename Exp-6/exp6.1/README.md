@@ -76,12 +76,3 @@ npm run dev
 * Resetting form using state management
 
 ---
-
-## 📄 Author
-
-**Yatin Singh**
-
----
-
-⭐ This project was created as part of a React lab experiment on handling forms using controlled components.
-![alt text](image.png)

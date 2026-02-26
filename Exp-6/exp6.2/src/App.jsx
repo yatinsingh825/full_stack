@@ -21,7 +21,7 @@ export default function App() {
 
     // ✅ Email Validation
     // must contain @ and .com/.in/any country code
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    const emailRegex =/^[A-Za-z0-9][A-Za-z0-9._%+-]*@[A-Za-z0-9-]+\.(com|in|org|net|edu)$/i;
 
     if (!emailRegex.test(form.email)) {
       newErrors.email = "Enter valid Email (.com / .in / country code)";

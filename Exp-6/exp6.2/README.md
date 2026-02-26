@@ -67,6 +67,18 @@ Client-side validation ensures correctness of user data and provides immediate f
 
 ---
 
+### ❌ ss4.png — Error messages for invalid Gmail
+
+![Validation Errors](./ss4.png)
+
+---
+
+### ❌ ss5.png — Error messages for invalid password
+
+![Validation Errors](./ss5.png)
+
+---
+
 ## ▶️ How to Run
 
 ```bash

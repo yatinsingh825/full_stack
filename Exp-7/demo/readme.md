@@ -22,7 +22,6 @@ It demonstrates how to build a backend service that connects to a database and e
 
 # 📁 Project Structure
 
-```
 com.sample.demo
 │
 ├── controller
@@ -38,7 +37,6 @@ com.sample.demo
 │      Student.java
 │
 └── DemoApplication.java
-```
 
 ---
 
@@ -46,32 +44,24 @@ com.sample.demo
 
 Database configuration is defined in:
 
-```
 src/main/resources/application.properties
-```
 
 ### MySQL Configuration
 
-```
 spring.datasource.url=jdbc:mysql://localhost:3306/spring_hibernate_db
 spring.datasource.username=root
 spring.datasource.password=12345678
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-```
 
 ### Hibernate Configuration
 
-```
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
-```
 
 ### Server Configuration
 
-```
 server.port=8080
-```
 
 ---
 
@@ -79,9 +69,7 @@ server.port=8080
 
 Create a MySQL database before running the application.
 
-```sql
 CREATE DATABASE spring_hibernate_db;
-```
 
 Spring Boot will automatically create the **student table** using Hibernate.
 
@@ -105,47 +93,62 @@ Fields:
 
 ## 1️⃣ Get All Students
 
-```
 GET /api/students
-```
 
 Example:
-
-```
 http://localhost:8080/api/students
-```
 
 ---
 
 ## 2️⃣ Get Student by ID
 
-```
 GET /api/students/{id}
-```
 
 Example:
-
-```
 http://localhost:8080/api/students/1
-```
 
 ---
 
 ## 3️⃣ Add New Student
 
-```
 POST /api/students
-```
 
 Request Body:
 
-```json
 {
   "id": 1,
   "name": "Yatin",
   "course": "Computer Science"
 }
-```
+
+---
+
+## 4️⃣ Update Student (PUT)
+
+PUT /api/students/{id}
+
+This API updates an existing student by ID.
+
+Example:
+http://localhost:8080/api/students/1
+
+Request Body:
+
+{
+  "name": "Yatin Sharma",
+  "course": "AI & ML"
+}
+
+---
+
+## 5️⃣ Delete Student
+
+DELETE /api/students/{id}
+
+This API deletes a student record by ID.
+
+Example:
+http://localhost:8080/api/students/1
 
 ---
 
@@ -153,25 +156,19 @@ Request Body:
 
 ### Step 1 — Clone the repository
 
-```
 git clone <repository-url>
-```
 
 ### Step 2 — Open the project in VS Code or IntelliJ
 
 ### Step 3 — Install dependencies
 
-```
 mvn clean install
-```
 
 ### Step 4 — Run the application
 
-```
 mvn spring-boot:run
-```
 
-or run the `DemoApplication.java` file.
+or run the DemoApplication.java file.
 
 ### Step 5 — Test APIs using Thunder Client or Postman
 
@@ -183,7 +180,7 @@ or run the `DemoApplication.java` file.
 
 ![Application Running](s1.png)
 
-This screenshot shows the Spring Boot application successfully starting and running on **port 8080**.
+This screenshot shows the Spring Boot application successfully starting and running on port 8080.
 
 ---
 
@@ -191,13 +188,12 @@ This screenshot shows the Spring Boot application successfully starting and runn
 
 ![API Test Success](s2.png)
 
-This screenshot shows a successful **GET request to `/api/students`** tested using Thunder Client in VS Code.
+This screenshot shows a successful GET request to `/api/students` tested using Thunder Client in VS Code.
 
 ---
 
 # 📊 Architecture
 
-```
 Client
    │
    ▼
@@ -211,7 +207,6 @@ Repository Layer (JPA)
    │
    ▼
 MySQL Database
-```
 
 ---
 
@@ -230,11 +225,52 @@ MySQL Database
 
 # 📌 Learning Outcome
 
-After completing this experiment, you will understand:
+After completing this project, you will understand:
 
-* How to create a **Spring Boot REST API**
-* How to connect **Spring Boot with MySQL**
-* How **JPA repositories** work
-* How **MVC architecture** is implemented in Spring Boot
+* How to create a Spring Boot REST API
+* How to connect Spring Boot with MySQL
+* How JPA repositories work
+* How MVC architecture is implemented in Spring Boot
+
+---
+
+# 🔧 Controller Code (Reference)
+
+@PutMapping("/students/{id}")
+public Student updateStudent(@PathVariable int id, @RequestBody Student student) {
+    return studentService.updateStudent(id, student);
+}
+
+@DeleteMapping("/students/{id}")
+public String deleteStudent(@PathVariable int id) {
+    studentService.deleteStudent(id);
+    return "Student deleted successfully!";
+}
+
+---
+
+# 🔧 Service Layer (Reference)
+
+public Student updateStudent(int id, Student updatedStudent) {
+    Student student = studentRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Student not found"));
+
+    student.setName(updatedStudent.getName());
+    student.setCourse(updatedStudent.getCourse());
+
+    return studentRepository.save(student);
+}
+
+public void deleteStudent(int id) {
+    studentRepository.deleteById(id);
+}
+
+---
+
+# ✅ Status
+
+✔ CRUD Operations Implemented  
+✔ MySQL Connected  
+✔ REST APIs Working  
 
 ---

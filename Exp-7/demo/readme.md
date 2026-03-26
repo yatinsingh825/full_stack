@@ -251,7 +251,13 @@ Use:
 
 ## API Testing in Thunder Client
 
-![API Test Success](s2.png)
+![GET](s2.png)
+
+---
+
+## API Testing in Thunder Client
+
+![API Post](s3.png)
 
 ---
 

@@ -260,6 +260,16 @@ Use:
 ![API Post](s3.png)
 
 ---
+## API Testing in Thunder Client
+
+![API PUT](s4.png)
+
+---
+## API Testing in Thunder Client
+
+![API delete](s5.png)
+
+---
 
 # 📊 Architecture
 

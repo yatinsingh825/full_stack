@@ -29,4 +29,17 @@ public class StudentController {
     public Student addStudent(@RequestBody Student student) {
         return service.saveStudent(student);
     }
+
+    // ✅ ADD THIS
+    @PutMapping("/{id}")
+    public Student updateStudent(@PathVariable int id, @RequestBody Student student) {
+        return service.updateStudent(id, student);
+    }
+
+    // ✅ ADD THIS
+    @DeleteMapping("/{id}")
+    public String deleteStudent(@PathVariable int id) {
+        service.deleteStudent(id);
+        return "Student deleted successfully";
+    }
 }

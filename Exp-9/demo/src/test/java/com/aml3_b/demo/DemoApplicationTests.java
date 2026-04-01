@@ -1,10 +1,10 @@
-package com.example.exp9.exp9;
+package com.aml3_b.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Exp9ApplicationTests {
+class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,0 +1,146 @@
+/* ===== CHART STYLES ===== */
+.chart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.chart-wrapper,
+.pie-chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chart-wrapper h4,
+.pie-chart-wrapper h4 {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ===== BAR CHART ===== */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bar-label {
+  color: #555;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.bar-container {
+  height: 40px;
+  background: #ecf0f1;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  min-width: 50px;
+}
+
+.bar.pending {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+.bar.inprogress {
+  background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.bar.resolved {
+  background: linear-gradient(90deg, #27ae60, #229954);
+}
+
+.bar-count {
+  font-size: 0.8rem;
+  color: #95a5a6;
+  text-align: right;
+}
+
+/* ===== PIE CHART ===== */
+.pie-chart-wrapper {
+  align-items: center;
+  justify-content: center;
+}
+
+.pie-chart {
+  width: 200px;
+  height: 200px;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.legend-color.pending {
+  background: #f39c12;
+}
+
+.legend-color.inprogress {
+  background: #3498db;
+}
+
+.legend-color.resolved {
+  background: #27ae60;
+}
+
+@media (max-width: 1024px) {
+  .chart-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .pie-chart {
+    width: 150px;
+    height: 150px;
+  }
+}

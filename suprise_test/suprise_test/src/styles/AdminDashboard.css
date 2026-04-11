@@ -1,0 +1,480 @@
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ===== TABS ===== */
+.tabs {
+  display: flex;
+  gap: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 0.7rem 1.5rem;
+  background: #ecf0f1;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: #d5dbdb;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: #667eea;
+}
+
+/* ===== DASHBOARD GRID ===== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.stat-card.primary::before {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.stat-card.pending::before {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+.stat-card.inprogress::before {
+  background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.stat-card.resolved::before {
+  background: linear-gradient(90deg, #27ae60, #229954);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0.5rem 0;
+}
+
+.stat-label {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* ===== USER MANAGEMENT ===== */
+.users-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.users-section h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.user-card {
+  background: #f8f9fa;
+  border: 2px solid #ecf0f1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.user-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.user-card.inactive {
+  opacity: 0.6;
+  background: #efefef;
+}
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.user-header h4 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.status-toggle {
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.status-toggle.active {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.status-toggle.inactive {
+  background: #fadbd8;
+  color: #c0392b;
+}
+
+.user-username {
+  color: #667eea;
+  font-weight: 600;
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+.user-email {
+  color: #7f8c8d;
+  margin: 0.3rem 0;
+  font-size: 0.85rem;
+}
+
+.role-selector {
+  margin: 1rem 0;
+}
+
+.role-selector label {
+  display: block;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.role-selector select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+.user-card .delete-btn {
+  width: 100%;
+  padding: 0.6rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.user-card .delete-btn:hover {
+  background: #c0392b;
+  transform: scale(1.02);
+}
+
+/* ===== COMPLAINTS SECTION ===== */
+.complaints-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.complaints-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.complaints-header h3 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.export-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.export-btn {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.export-btn.csv {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.export-btn.csv:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.export-btn.pdf {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.export-btn.pdf:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.sort-select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  min-width: 150px;
+}
+
+.sort-select:hover {
+  border-color: #667eea;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.analytics-section {
+  margin-top: 2rem;
+}
+
+.analytics-section h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+
+.complaint-card-admin {
+  background: #f8f9fa;
+  border-left: 4px solid #667eea;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.complaint-card-admin:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 0.8rem;
+}
+
+.complaint-header h4 {
+  color: #2c3e50;
+  margin: 0;
+  flex: 1;
+}
+
+.priority {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.priority.low {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.priority.medium {
+  background: #fef5e7;
+  color: #f39c12;
+}
+
+.priority.high {
+  background: #fadbd8;
+  color: #c0392b;
+}
+
+.complaint-card-admin > p {
+  color: #555;
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.complaint-meta {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.complaint-meta span {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status.pending {
+  background: #fef5e7;
+  color: #f39c12;
+}
+
+.status.in-progress,
+.status.inprogress {
+  background: #d6eaf8;
+  color: #3498db;
+}
+
+.status.resolved {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.category {
+  background: #ecf0f1;
+  color: #2c3e50;
+}
+
+.user {
+  background: #e8daef;
+  color: #8e44ad;
+}
+
+.status-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.status-actions select {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.status-actions .delete-btn {
+  padding: 0.6rem 1.2rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.status-actions .delete-btn:hover {
+  background: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .users-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .complaint-header {
+    flex-direction: column;
+  }
+
+  .priority {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab-btn {
+    width: 100%;
+  }
+}

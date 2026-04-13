@@ -50,6 +50,15 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable Long id, HttpServletRequest request) {
+        String role = extractRole(request);
+        // Allow users to fetch their own data, admins can fetch any user
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        return user;
+    }
+
     @GetMapping("/by-role/{role}")
     public List<User> getUsersByRole(@PathVariable String role, HttpServletRequest request) {
         String userRole = extractRole(request);

@@ -13,13 +13,20 @@ function AppContent() {
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token"));
   const [userRole, setUserRole] = useState(localStorage.getItem("userRole"));
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem("userData") || "{}"));
+  const [interceptorReady, setInterceptorReady] = useState(false);
   const { addToast } = useToast();
 
   const API = "http://localhost:8080/api";
 
   useEffect(() => {
+    // ✅ Setup axios interceptors FIRST before any components make requests
+    console.log("⚙️ Setting up axios interceptors...");
+
+    let requestInterceptorId = null;
+    let responseInterceptorId = null;
+
     // ✅ ADD AXIOS REQUEST INTERCEPTOR - Sets token on EVERY request
-    const requestInterceptor = axios.interceptors.request.use(
+    requestInterceptorId = axios.interceptors.request.use(
       (config) => {
         const token = localStorage.getItem("token");
         if (token) {
@@ -31,49 +38,77 @@ function AppContent() {
         return config;
       },
       (error) => {
+        console.error("❌ Request Error:", error.message);
         return Promise.reject(error);
       }
     );
 
-    // ✅ ADD AXIOS RESPONSE INTERCEPTOR - Logs all responses
-    const responseInterceptor = axios.interceptors.response.use(
+    // ✅ ADD AXIOS RESPONSE INTERCEPTOR - Handle all responses
+    responseInterceptorId = axios.interceptors.response.use(
       (response) => {
-        console.log("✅ API SUCCESS:", response.config.url, response.status, response.data);
+        console.log("✅ API SUCCESS:", response.config.url, response.status);
         return response;
       },
       (error) => {
-        console.error("❌ API ERROR:", {
-          url: error.config?.url,
-          status: error.response?.status,
-          data: error.response?.data,
-          message: error.message,
-        });
+        // Log the error but don't log full details to reduce noise
+        if (error.response) {
+          console.error("❌ API ERROR:", error.response.status, error.config.url);
+
+          // Handle 401 Unauthorized - token expired or invalid
+          if (error.response.status === 401) {
+            console.warn("⚠️ Unauthorized (401)! Redirecting to login...");
+            localStorage.removeItem("token");
+            localStorage.removeItem("userRole");
+            localStorage.removeItem("userData");
+            // Force reload to login page
+            setTimeout(() => window.location.href = "/", 500);
+          }
+        } else {
+          console.error("❌ Network Error:", error.message);
+        }
         return Promise.reject(error);
       }
     );
 
+    // Mark that interceptor is ready
+    console.log("✅ Axios interceptors setup complete");
+    setInterceptorReady(true);
+
     return () => {
-      axios.interceptors.request.eject(requestInterceptor);
-      axios.interceptors.response.eject(responseInterceptor);
+      // Cleanup interceptors
+      if (requestInterceptorId !== null) {
+        axios.interceptors.request.eject(requestInterceptorId);
+      }
+      if (responseInterceptorId !== null) {
+        axios.interceptors.response.eject(responseInterceptorId);
+      }
     };
   }, []);
 
   const handleLogout = () => {
+    console.log("🚪 Logging out...");
     localStorage.removeItem("token");
     localStorage.removeItem("userRole");
     localStorage.removeItem("userData");
-    delete axios.defaults.headers.common["Authorization"];
-    // ✅ Clear Authorization header from all future requests
-    axios.defaults.headers.common["Authorization"] = "";
     setLoggedIn(false);
     setUserRole(null);
     setUserData({});
     addToast("Logged out successfully", "success");
-    console.log("✅ Logged out, token cleared");
   };
 
   if (!loggedIn) {
     return <Login setLoggedIn={setLoggedIn} setUserRole={setUserRole} setUserData={setUserData} />;
+  }
+
+  // ✅ Only render dashboards AFTER interceptor is ready to prevent 401 errors
+  if (!interceptorReady) {
+    return (
+      <div className="app-wrapper">
+        <div style={{ textAlign: "center", padding: "50px" }}>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -114,4 +149,3 @@ function App() {
 }
 
 export default App;
-

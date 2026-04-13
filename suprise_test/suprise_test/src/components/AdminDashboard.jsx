@@ -32,8 +32,13 @@ function AdminDashboard({ userData }) {
     } catch (err) {
       console.error("❌ Error fetching stats:", err);
       console.error("Response data:", err.response?.data);
-      const errorMessage = err.response?.data?.message || err.message || "Error fetching stats";
+      let errorMessage = err.response?.data?.message || err.message || "Error fetching stats";
+      if (err.response?.status === 500) {
+        errorMessage = "Server error fetching stats. Please refresh the page.";
+      }
       addToast(errorMessage, "error");
+      // Set default stats on error
+      setStats({ totalComplaints: 0, pendingComplaints: 0, inProgressComplaints: 0, resolvedComplaints: 0 });
     }
   };
 
@@ -46,8 +51,15 @@ function AdminDashboard({ userData }) {
     } catch (err) {
       console.error("❌ Error fetching users:", err);
       console.error("Response data:", err.response?.data);
-      const errorMessage = err.response?.data?.message || err.message || "Error fetching users";
+
+      // Handle 500 errors gracefully
+      let errorMessage = err.response?.data?.message || err.message || "Error fetching users";
+      if (err.response?.status === 500) {
+        errorMessage = "Server error fetching users. Please refresh the page.";
+      }
       addToast(errorMessage, "error");
+      // Set empty array on error to prevent rendering stale data
+      setUsers([]);
     }
   };
 
@@ -61,8 +73,13 @@ function AdminDashboard({ userData }) {
     } catch (err) {
       console.error("❌ Error fetching complaints:", err);
       console.error("Response data:", err.response?.data);
-      const errorMessage = err.response?.data?.message || err.message || "Error fetching complaints";
+      let errorMessage = err.response?.data?.message || err.message || "Error fetching complaints";
+      if (err.response?.status === 500) {
+        errorMessage = "Server error fetching complaints. Please refresh the page.";
+      }
       addToast(errorMessage, "error");
+      // Set empty array on error
+      setComplaints([]);
       setLoading(false);
     }
   };

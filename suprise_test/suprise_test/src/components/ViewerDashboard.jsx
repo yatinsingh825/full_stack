@@ -23,8 +23,12 @@ function ViewerDashboard({ userData }) {
       setLoading(false);
     } catch (err) {
       console.error("Error fetching complaints:", err);
-      const errorMessage = err.response?.data?.message || err.message || "Error fetching complaints";
+      let errorMessage = err.response?.data?.message || err.message || "Error fetching complaints";
+      if (err.response?.status === 500) {
+        errorMessage = "Server error. Please refresh the page.";
+      }
       addToast(errorMessage, "error");
+      setComplaints([]); // Set empty array on error
       setLoading(false);
     }
   };
